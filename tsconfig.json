@@ -39,5 +39,5 @@
     "moduleDetection": "force",
     "skipLibCheck": true
   },
-  "include": ["lib", "test", "eslint.config.ts", "prettier.config.ts", "vitest.config.ts"]
+  "include": ["lib", "test", "oxlint.config.ts", "oxfmt.config.ts", "vitest.config.ts"]
 }

@@ -1,6 +1,4 @@
-import type { Options } from "prettier";
-
-const config: Options = {
+export default {
   singleQuote: false,
   semi: true,
   tabWidth: 2,
@@ -8,12 +6,11 @@ const config: Options = {
   proseWrap: "always",
   trailingComma: "all",
   endOfLine: "lf",
-  plugins: ["@trivago/prettier-plugin-sort-imports"],
   importOrder: ["<THIRD_PARTY_MODULES>", "^@/(.*)$", "^[./]"],
   importOrderSeparation: true,
   importOrderSortSpecifiers: true,
   importOrderCaseInsensitive: true,
   importOrderParserPlugins: ["typescript", "typescript-jsx"],
+  sortPackageJson: false,
+  ignorePatterns: ["dist", "node_modules", "pnpm-lock.yaml", ".changeset/README.md"],
 };
-
-export default config;
