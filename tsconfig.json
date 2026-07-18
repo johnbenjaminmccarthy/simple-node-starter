@@ -21,6 +21,9 @@
     // Stricter Typechecking Options
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
+    // Require explicitly writable types on exported API, enabling fast
+    // parallel .d.ts emit by TS7-native and oxc-based tools.
+    "isolatedDeclarations": true,
 
     // Style Options
     "noImplicitReturns": true,
