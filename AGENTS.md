@@ -62,6 +62,22 @@ pnpm test:unit
 pnpm test:integration
 ```
 
+## Tooling notes
+
+- **TypeScript 7 (native compiler)** with `isolatedDeclarations`: every exported symbol needs an
+  explicitly written type. Config files follow the pattern
+  `const config: SomeConfigType = {...}; export default config;` — keep that pattern when editing
+  them.
+- **oxlint** (`oxlint.config.ts`) is category-based: correctness/suspicious/perf are errors,
+  pedantic is warnings, style is deliberately off. Type-aware rules (e.g. `no-floating-promises`)
+  run via `oxlint-tsgolint` (`--type-aware` in the lint scripts). Prefer adjusting category levels
+  over adding individual rules.
+- **oxfmt** (`oxfmt.config.ts`) uses built-in defaults plus import sorting (type imports first,
+  then builtin/external/internal/relative groups) and `package.json` key sorting.
+- `pnpm check:fix` runs the lint fixer once; files with both duplicate imports and type-only
+  import violations may need a second pass (`no-duplicates` merges first, then
+  `consistent-type-imports` extracts the `type` specifier).
+
 ## Release workflow (Changesets)
 
 When preparing a release:

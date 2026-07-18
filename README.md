@@ -6,16 +6,20 @@ Minimal template for a publishable **Node.js + TypeScript** package.
 
 ### Includes
 
-- **TypeScript library build**: source in `lib/`, output to `dist/`, ESM (`"type": "module"`)
-- **oxlint**: fast linting with JSDoc + import-sort rules
-- **oxfmt**: fast formatting
+- **TypeScript 7 (native compiler)**: strict options + `isolatedDeclarations`, source in `lib/`,
+  output to `dist/`, ESM (`"type": "module"`)
+- **oxlint**: category-based lint config (correctness/suspicious/perf as errors, pedantic as
+  warnings) with type-aware rules powered by `oxlint-tsgolint`, plus import hygiene
+  (`import type` enforcement, no duplicate imports)
+- **oxfmt**: fast formatting with import sorting (type imports first, then
+  builtin/external/internal groups), JSDoc formatting, and `package.json` key sorting
 - **Vitest**: unit + integration test targets
 - **Changesets**: versioning + changelog-friendly releases
 
 ### Requirements
 
-- **Node**: >= 22
-- **Package manager**: `pnpm`
+- **Node**: >= 24
+- **Package manager**: `pnpm` >= 11
 
 ### Setup
 
